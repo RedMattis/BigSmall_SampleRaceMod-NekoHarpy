@@ -1,0 +1,216 @@
+<Defs>
+  
+  <!-- Note that a lot of stuff here is just for example.
+   
+  E.g. you don't need to add the Humanlike think-tree because it gets inherited from the parent human.
+  If if you _do_ want a custom thinktree, that is where you'd put it. 
+  
+  You can add basically any stat or race property from anywhere unto this. What you see below is just an example.
+  -->
+
+  <!--The BS_Alt entry is important for HAR compatibility. It will swap the ThingDef for HAR's custom thing so HAR doesn't print a giant red error.-->
+  <ThingDef ParentName="Human" BS_Alt="ThingDef_AlienRace"> 
+    <defName>SRM_NekoHarpy</defName>
+    <label>Neko-Harpy</label>
+    <description>A creature most known for committing horrible warcrimes as well as performing lewd and unusual acts such as eating without a table.</description>
+    <!-- <soundImpactDefault>BulletImpact_Metal</soundImpactDefault> -->
+    <statBases>
+      <MarketValue>2000</MarketValue>
+
+      <!-- Speeeeeeed! -->
+      <MoveSpeed>6</MoveSpeed>
+
+      <!-- Good at handing cold. Heat, not so much. -->
+      <ComfyTemperatureMin>7</ComfyTemperatureMin>
+      <ComfyTemperatureMax>25</ComfyTemperatureMax>
+
+      <!-- For some reason they their feathers are permanently soaked in kerosene-->
+      <Flammability>2</Flammability>
+
+      <!-- Neko-harpies will flirt with anything relentlessly, because of course they will.-->
+      <SM_FlirtChance>1.5</SM_FlirtChance>
+      <Fertility MayRequire="Ludeon.Rimworld.Biotech">2</Fertility>
+
+      <!-- Bird-brained -->
+      <GlobalLearningFactor>0.65</GlobalLearningFactor>
+      <RoyalFavorValue>4</RoyalFavorValue>
+      <MaxNutrition>0.8</MaxNutrition>
+      <CarryingCapacity>100</CarryingCapacity>
+
+      <!-- As everyone knows Neko harpies are apparently absolutely huge? WHAT!? Are they based on Condors? -->
+      <SM_BodySizeMultiplier>1.3</SM_BodySizeMultiplier>
+    </statBases>
+    <tools Inherit="False">
+      <li>
+        <label>left wing</label>
+        <labelNoLocation>wing</labelNoLocation>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>8</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>LeftHand</linkedBodyPartsGroup>
+        <surpriseAttack>
+          <extraMeleeDamages>
+            <li>
+              <def>Stun</def>
+              <amount>14</amount>
+            </li>
+          </extraMeleeDamages>
+        </surpriseAttack>
+      </li>
+      <li>
+        <label>right wing</label>
+        <labelNoLocation>wing</labelNoLocation>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>8</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>RightHand</linkedBodyPartsGroup>
+        <surpriseAttack>
+          <extraMeleeDamages>
+            <li>
+              <def>Stun</def>
+              <amount>14</amount>
+            </li>
+          </extraMeleeDamages>
+        </surpriseAttack>
+      </li>
+      <li>
+        <label>left talon</label>
+        <labelNoLocation>talon</labelNoLocation>
+        <capacities>
+          <li>Cut</li>
+        </capacities>
+        <power>9.2</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>Feet</linkedBodyPartsGroup>
+        <surpriseAttack>
+          <extraMeleeDamages>
+            <li>
+              <def>Stun</def>
+              <amount>14</amount>
+            </li>
+          </extraMeleeDamages>
+        </surpriseAttack>
+      </li>
+      <li>
+        <label>right talon</label>
+        <labelNoLocation>talon</labelNoLocation>
+        <capacities>
+          <li>Cut</li>
+        </capacities>
+        <power>9.2</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>Feet</linkedBodyPartsGroup>
+        <surpriseAttack>
+          <extraMeleeDamages>
+            <li>
+              <def>Stun</def>
+              <amount>14</amount>
+            </li>
+          </extraMeleeDamages>
+        </surpriseAttack>
+      </li>
+      <li>
+        <label>teeth</label>
+        <capacities>
+          <li>Bite</li>
+        </capacities>
+        <power>8.2</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>Teeth</linkedBodyPartsGroup>
+        <chanceFactor>0.07</chanceFactor>
+        <soundMeleeHit>Pawn_Melee_HumanBite_Hit</soundMeleeHit>
+        <soundMeleeMiss>Pawn_Melee_HumanBite_Miss</soundMeleeMiss>
+      </li>
+      <li>
+        <label>head</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>5</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+        <ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+        <chanceFactor>0.2</chanceFactor>
+      </li>
+    </tools>
+    <race>
+      <!-- These can be changed if you want custom thinktrees. -->
+      <thinkTreeMain>Humanlike</thinkTreeMain>
+      <thinkTreeConstant>HumanlikeConstant</thinkTreeConstant>
+      
+      <!-- Out custom body. VERY IMPORTANT! :) -->
+      <body>SRM_NekoHarpyBody</body>
+
+      <makesFootprints>true</makesFootprints>
+      <lifeExpectancy>112</lifeExpectancy>
+      <nameCategory>HumanStandard</nameCategory>
+
+      <!-- I'd suggest to use SM_BodySizeMultiplier or the Cosmetic version instead of changing size here. -->
+      <baseBodySize>1</baseBodySize>
+      <baseHealthScale>1</baseHealthScale>
+      
+      <!-- They are sadly very hungry. -->
+      <baseHungerRate>1.5</baseHungerRate> 
+
+      <gestationPeriodDays>18</gestationPeriodDays>
+      
+      <canBecomeShambler>true</canBecomeShambler>
+
+      <!-- Example of disabing meat/leather/blood. -->
+      <!-- <useMeatFrom IsNull="True"/>
+      <leatherDef IsNull="True"/>
+      <bloodSmearDef IsNull="True"/>
+      <bloodDef>Filth_MachineBits</bloodDef> -->
+      
+      <manhunterOnDamageChance>1</manhunterOnDamageChance>
+      <manhunterOnTameFailChance>0.01</manhunterOnTameFailChance>
+
+      <!-- You can set your own hediffGivers if you don't want to let Rimworld grant the standard human hediffs. -->
+      <!-- <hediffGiverSets Inherit="False"/> -->
+      
+      <lifeStageAges Inherit="False">
+        <!-- We're not using custom defs because some Rimworld stuff is hardcoded to look for certain defs.
+         Better from a compatibility standpoint to simply make the stages exist but not be active if you must. -->
+         <!-- You can use aging rate modifiers and setting for making children be born at a higher age.-->
+        <li>
+          <def>HumanlikeBaby</def>
+          <minAge>0</minAge>
+        </li>
+        <li>
+          <def>HumanlikeChild</def>
+          <minAge>3</minAge>
+        </li>
+        <li MayRequire="Ludeon.RimWorld.Biotech">
+          <def>HumanlikePreTeenager</def>
+          <minAge>9</minAge>
+        </li>
+        <li>
+          <def>HumanlikeTeenager</def>
+          <minAge>13</minAge>
+        </li>
+        <li>
+          <def>HumanlikeAdult</def>
+          <minAge>18</minAge>
+        </li>
+      </lifeStageAges>
+      <ageGenerationCurve>
+        <points>
+          <li>(20,0)</li>
+          <li>(21,100)</li>
+          <li>(90,100)</li>
+          <li>(300,0)</li>
+        </points>
+      </ageGenerationCurve>
+    </race>
+    <modExtensions>
+      <!-- Required to get the Hediff/tracker added. -->
+      <li Class="BigAndSmall.RaceExtension">
+        <raceHediff>SRM_NekoHarpyTracker</raceHediff>
+      </li>
+    </modExtensions>
+  </ThingDef>
+</Defs>

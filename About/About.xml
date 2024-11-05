@@ -1,0 +1,51 @@
+<ModMetaData>
+	
+	<!-- Name and author information. -->
+	<name>Big and Small - Sample Race Mod (Harpy-Neko Race)</name>
+	<author>RedMattis</author>
+	<supportedVersions>
+    <li>1.5</li>
+	</supportedVersions>
+
+	<!-- You can supply a mod icon here if desired. -->
+	<!-- <modIconPath IgnoreIfNoMatchingField="True">BS_ModIcon</modIconPath> -->
+  
+  <!-- Input your package ID here. -->
+  <packageId>RedMattis.SampleRaceMod.HarpyNeko</packageId>
+
+	<!-- These are the dependencies of your mod. -->
+	<modDependencies>
+		<li>
+        <packageId>brrainz.harmony</packageId>
+        <displayName>Harmony</displayName>
+        <steamWorkshopUrl>steam://url/CommunityFilePage/2009463077</steamWorkshopUrl>
+        <downloadUrl>https://github.com/pardeike/HarmonyRimWorld/releases/latest</downloadUrl>
+		</li>
+    <li>
+        <packageId>RedMattis.BetterPrerequisites</packageId>
+        <displayName>Better Gene Prerequisites</displayName>
+        <steamWorkshopUrl>steam://url/CommunityFilePage/2925432336</steamWorkshopUrl>
+		</li>
+	</modDependencies>
+
+	<!-- Mods to load your mod after. -->
+	<loadAfter>
+		<li>Ludeon.RimWorld</li>
+		<li>Ludeon.RimWorld.Royalty</li>
+		<li>Ludeon.RimWorld.Ideology</li>
+		<li>Ludeon.RimWorld.Biotech</li>
+    <li>Ludeon.RimWorld.Anomaly</li>
+		<li>brrainz.harmony</li>
+		<li>RedMattis.BetterPrerequisites</li>
+		<li>RedMattis.BigSmall.Core</li>
+    <li>erdelf.HumanoidAlienRaces</li>
+		<li>vanillaracesexpanded.android</li>
+		<li>nals.facialanimation</li>
+		<li>vanillaexpanded.vtexe.facialanims</li>
+	</loadAfter>
+  <incompatibleWith>
+	</incompatibleWith>
+
+	<!-- Description of your mod. Will show up in the mod menu. -->
+	<description>This is a sample race mod for the Big and Small Framework race creation guide.\n\nPlease change this description to something else...</description>
+</ModMetaData>
