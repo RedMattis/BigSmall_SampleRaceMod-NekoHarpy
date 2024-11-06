@@ -46,7 +46,7 @@
 		<displayOrderInCategory>100</displayOrderInCategory>
 		<iconPath>Icons/BS_Kitsune</iconPath>
     <modExtensions>
-      <li Class="BetterPrerequisites.GeneExtension">
+      <li Class="BigAndSmall.PawnExtension">
 				<thingDefSwap>SRM_NekoHarpy</thingDefSwap>
         <forceThingDefSwap>false</forceThingDefSwap>
 			</li>
