@@ -13,7 +13,6 @@
     <defName>SRM_NekoHarpy</defName>
     <label>Neko-Harpy</label>
     <description>A creature most known for committing horrible warcrimes as well as performing lewd and unusual acts such as eating without a table.</description>
-    <!-- <soundImpactDefault>BulletImpact_Metal</soundImpactDefault> -->
     <statBases>
       <MarketValue>2000</MarketValue>
 
