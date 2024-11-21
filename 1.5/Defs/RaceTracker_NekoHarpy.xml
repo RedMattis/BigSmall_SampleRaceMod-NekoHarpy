@@ -138,7 +138,7 @@
         </apparelRestrictions>
         <surgeryRecipes>
           <blacklist>
-            <!-- Stoneskin harpy? Denied! -->
+            <!-- Stoneskin neko-harpy? Denied! -->
             <li MayRequire="Ludeon.RimWorld.Royalty">InstallStoneskinGland</li>
             <!-- <li MayRequire="Ludeon.RimWorld.Royalty">InstallArmorskinGland</li> -->
             <!-- <li MayRequire="Ludeon.RimWorld.Royalty">InstallToughskinGland</li> -->

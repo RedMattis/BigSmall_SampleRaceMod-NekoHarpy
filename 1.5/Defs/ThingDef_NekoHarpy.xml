@@ -35,6 +35,7 @@
       <RoyalFavorValue>4</RoyalFavorValue>
       <MaxNutrition>0.8</MaxNutrition>
       <CarryingCapacity>100</CarryingCapacity>
+      <VEF_MassCarryCapacity MayRequire="OskarPotocki.VanillaFactionsExpanded.Core">100</VEF_MassCarryCapacity>
 
       <!-- As everyone knows Neko harpies are apparently absolutely huge? WHAT!? Are they based on Condors? -->
       <SM_BodySizeMultiplier>1.3</SM_BodySizeMultiplier>
