@@ -159,9 +159,9 @@
       <gestationPeriodDays>18</gestationPeriodDays>
       
       <canBecomeShambler>true</canBecomeShambler>
-
-      <!-- Example of disabing meat/leather/blood. -->
+      
       <!-- <useMeatFrom IsNull="True"/>
+      <hasMeat>false</hasMeat>
       <leatherDef IsNull="True"/>
       <bloodSmearDef IsNull="True"/>
       <bloodDef>Filth_MachineBits</bloodDef> -->
