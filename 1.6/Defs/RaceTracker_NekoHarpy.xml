@@ -1,0 +1,394 @@
+<Defs>
+  <HediffDef>
+    <defName>SRM_NekoHarpyTracker</defName>
+    <description>A creature most known for committing horrible warcrimes as well as performing lewd and unusual acts such as eating without a table.</description>
+    <label>Neko-Harpy</label>
+
+    <!-- Include this class for best behaviour. -->
+    <hediffClass>BigAndSmall.RaceTracker</hediffClass>
+    <defaultLabelColor>(0.5, 0.5, 1.0)</defaultLabelColor>
+
+    <!-- Make sure healer mech serums don't decide to remove the tracker. -->
+    <isBad>false</isBad>
+    <everCurableByItem>false</everCurableByItem>
+
+    <initialSeverity>1</initialSeverity>
+
+    <!--
+    "Stages", even if you just have one is a useful way to control a lot of rimworld behaviour.
+
+    They will also show up for the user, so you may want to put some statOffsets and such in here simply for the sake of clarity.
+    -->
+    <stages Inherit="False">
+      <li>
+        <!-- Oh no, they bleed out fast! -->
+        <totalBleedFactor>1.2</totalBleedFactor>
+
+        <!-- ...and pick fights... -->
+        <socialFightChanceFactor>1.2</socialFightChanceFactor>
+      </li>
+    </stages>
+
+    <comps>
+      <!--
+      This comp inherits from one made for shape-shifting, but it has some useful settings for races.
+       
+      For more of its properties check out CompProperties_ColorAndFur.
+      -->
+      <li Class="BigAndSmall.CompProperties_Race">
+        <!-- Determines of genes or the like can change the race of the creature. -->
+        <canSwapAwayFrom>true</canSwapAwayFrom>
+
+        <disableBeards>true</disableBeards>
+        <disableHair>false</disableHair>
+
+        <!-- Still a good idea to set this for fur-like bodies since Biotech stuff will still check skin color otherwise. -->
+        <skinIsHairColor>true</skinIsHairColor>
+
+        <!-- Override the headTypeDef. I guess the NekoHarpies all appear female? -->
+        <headDefOverride>Female_AveragePointy</headDefOverride>
+        <headDefOverride_Female>Female_AverageNormal</headDefOverride_Female>
+
+        <!-- Oh, of course...-->
+        <bodyDefOverride>Female</bodyDefOverride>
+        <bodyDefOverride_Female>Hulk</bodyDefOverride_Female>
+      </li>
+		</comps>
+
+    <modExtensions>
+      <li Class="BigAndSmall.PawnExtension">
+        <hediffFilters>
+          <banlist>
+            <!-- Example of blocking common hediffs.
+             More powerful than the vanilla system since it will remove them if applied by unusual means. -->
+            <li>Cataract</li>
+            <li>Asthma</li>
+            <li>FoodPoisoning</li>
+          </banlist>
+        </hediffFilters>
+        <traitFilters>
+          <blacklist>
+            <li>Wimp</li>
+          </blacklist>
+        </traitFilters>
+        <nullsThoughts>
+          <li MayRequire="Ludeon.Rimworld.Ideology">GroinUncovered_Disapproved_Male</li>
+          <li MayRequire="Ludeon.Rimworld.Ideology">GroinUncovered_Disapproved_Social_Male</li>
+          <li MayRequire="Ludeon.Rimworld.Ideology">GroinOrChestUncovered_Disapproved_Male</li>
+          <li MayRequire="Ludeon.Rimworld.Ideology">GroinOrChestUncovered_Disapproved_Social_Male</li>
+          <li MayRequire="Ludeon.Rimworld.Ideology">GroinChestOrHairUncovered_Disapproved_Male</li>
+          <li MayRequire="Ludeon.Rimworld.Ideology">GroinChestOrHairUncovered_Disapproved_Social_Male</li>
+          <li>Naked</li>
+          <li>Pain</li>
+        </nullsThoughts>
+        <geneTagFilters>
+          <blacklist>
+            <!-- We've already got wings. We don't want to permit genes that add extra wings ontop. -->
+            <li>Wing</li>
+            <li>Wings</li>
+          </blacklist>
+        </geneTagFilters>
+        <immutableEndogenes>
+          <!-- Perhaps Perhaps you find the idea of bearded neko-harpies absolutely unacceptable? If so you can force a gene, 
+           and prevent any other xenogenes or endogenes from overriding it. -->
+          <li MayRequire="Ludeon.Rimworld.Biotech">Beard_NoBeardOnly</li>
+        </immutableEndogenes>
+        <geneFilters>
+          <blacklist>
+            <!-- Facial ridges on our neko harpies? Ew! No wai! -->
+            <li MayRequire="Ludeon.Rimworld.Biotech">Brow_Heavy</li>
+            <li MayRequire="Ludeon.Rimworld.Biotech">FacialRidges</li>
+            <li MayRequire="Ludeon.Rimworld.Biotech">Pain_Extra</li>
+          </blacklist>
+        </geneFilters>
+        
+        <aptitudes>
+          <Melee>4</Melee>
+          <Shooting>4</Shooting>
+          <Construction>-4</Construction>
+          <Mining>-4</Mining>
+          <Cooking>-4</Cooking>
+          <Plants>-4</Plants>
+          <!-- <Animals>0</Animals> -->
+          <Crafting>-4</Crafting>
+          <!-- <Artistic>0</Artistic> -->
+          <!-- <Medicine>0</Medicine> -->
+          <Social>4</Social>
+          <Intellectual>-4</Intellectual>
+        </aptitudes>
+        <apparelRestrictions>
+          <thingDefs>
+            <blacklist>
+              <!-- Screw flophats apparently? -->
+              <li MayRequire="Ludeon.Rimworld.Ideology">Apparel_Flophat</li>
+            </blacklist>
+          </thingDefs>
+          <apparelLayers>
+            <blacklist>
+              <!-- Nekoharpies can't fit in power armor. -->
+              <li>Shell</li>
+            </blacklist>
+          </apparelLayers>
+          <bodyPartGroups>
+            <blacklist>
+              <!-- Nekoharpies in hats is cute, but none of those full-helmets please! -->
+              <li>FullHead</li>
+            </blacklist>
+          </bodyPartGroups>
+        </apparelRestrictions>
+        <surgeryRecipes>
+          <blacklist>
+            <!-- Stoneskin neko-harpy? Denied! -->
+            <li MayRequire="Ludeon.RimWorld.Royalty">InstallStoneskinGland</li>
+            <!-- <li MayRequire="Ludeon.RimWorld.Royalty">InstallArmorskinGland</li> -->
+            <!-- <li MayRequire="Ludeon.RimWorld.Royalty">InstallToughskinGland</li> -->
+          </blacklist>
+          <!-- <allowlist> -->
+            <!-- You can drop race-specific recipes in here -->
+          <!-- </allowlist> -->
+        </surgeryRecipes>
+
+        <!-- Not super-neccecary since we force a female body anyway, but it might help avoid confusing other mods. -->
+        <forceFemaleBody>true</forceFemaleBody>
+
+        <!-- Set color to be that of the hair -->
+        <bodyMaterial>
+          <shader>CutoutComplex</shader>
+          <overrideDesiccated>false</overrideDesiccated>
+          <colorA>
+            <hairColor>true</hairColor>
+            <alts>
+              <li>
+                <triggers><li>Dead</li></triggers>
+                <color>(0.2,0.05,0)</color>
+              </li>
+            </alts>
+          </colorA>
+        </bodyMaterial>
+        <!-- Set skin color to be half-and-half that of the hair and skin. -->
+        <headMaterial>
+          <shader>CutoutComplex</shader>
+          <overrideDesiccated>false</overrideDesiccated>
+          <colorA>
+            <hairColor>true</hairColor>
+
+            <!-- Increase brightness and lower saturation to give a bit of a "thin-fur/feathers"-look. -->
+            <brightness>1.3</brightness>
+            <saturation>0.7</saturation>
+            <alts>
+              <li>
+                <triggers><li>Dead</li></triggers>
+                <color>(0.2,0.05,0)</color>
+              </li>
+            </alts>
+          </colorA>
+        </headMaterial>
+      </li>
+    </modExtensions>
+
+    <!-- Graphics! -->
+    <renderNodeProperties>
+      <li>
+        <!-- Neko... wait, it says fox ears though? What are we making exactly? -->
+        <nodeClass>PawnRenderNode_AttachmentHead</nodeClass>
+        <workerClass>PawnRenderNodeWorker_FlipWhenCrawling</workerClass>
+        <texPath>RaceTextures/Ears/BS_FoxEars</texPath>
+        <useSkinShader>false</useSkinShader>
+        <colorType>Hair</colorType>
+        <drawData>
+          <defaultData>
+            <layer>80</layer>
+          </defaultData>
+        </drawData>
+        <parentTagDef>Head</parentTagDef>
+      </li>
+
+      <!-- Harpy... Nekomata..? -->
+      <li>
+        <workerClass>PawnRenderNodeWorker_AttachmentBody</workerClass>
+        <parentTagDef>Body</parentTagDef>
+        <texPath>RaceTextures/Tails/BS_NekomataTail</texPath>
+        <drawSize>(1.125,1.125)</drawSize>
+        <colorType>Hair</colorType>
+        <drawData>
+          <scaleOffsetByBodySize>true</scaleOffsetByBodySize>
+          <defaultData>
+            <layer>-2</layer>
+          </defaultData>
+          <dataNorth>
+            <offset>(0.0, 0, -0.4)</offset>
+            <layer>90</layer>
+          </dataNorth>
+          <dataSouth>
+            <offset>(-0.0, 0, 0.0)</offset>
+          </dataSouth>
+          <dataEast>
+            <offset>(-0.45, 0, -0.05)</offset>
+          </dataEast>
+        </drawData>
+      </li>
+
+      <li>
+        <!-- Wings! Let's pretend they aren't called "GorgonWings" -->
+        <parentTagDef>Body</parentTagDef>
+        <workerClass>PawnRenderNodeWorker_AttachmentBody</workerClass>
+        <texPath>RaceTextures/Wings/BS_GorgonWingsBack</texPath>
+        <drawSize>(1.24,1.24)</drawSize>
+        <color>(245,245,245)</color>
+        <colorType>Hair</colorType>
+        <drawData>
+          <defaultData>
+            <layer>10</layer>
+          </defaultData>
+          <dataSouth>
+            <layer>-1</layer>
+          </dataSouth>
+          <dataNorth>
+            <layer>90</layer>
+          </dataNorth>
+        </drawData>
+      </li>
+      <li>
+        <parentTagDef>Body</parentTagDef>
+        <workerClass>PawnRenderNodeWorker_AttachmentBody</workerClass>
+        <texPath>RaceTextures/Wings/BS_GorgonWingsFront</texPath>
+        <drawSize>(1.24,1.24)</drawSize>
+        <color>(245,245,245)</color>
+        <colorType>Hair</colorType>
+        <drawData>
+          <defaultData>
+            <layer>91</layer>
+          </defaultData>
+          <dataNorth>
+            <layer>91</layer>
+          </dataNorth>
+        </drawData>
+      </li>
+
+      <!-- Of course the mandatory Neko-Harpy Halo! -->
+
+      <!-- What follows is an example of a more advanced shader. -->
+      <li Class="BigAndSmall.PawnComplexRenderingProps">
+        
+        <nodeClass>BigAndSmall.PawnRenderNode_Complex</nodeClass>
+        <workerClass>PawnRenderNodeWorker_FlipWhenCrawling</workerClass>
+        <texPath>RaceTextures/Halos/Halo_Greyscale</texPath>
+        <color>(255, 255, 255, 200)</color>
+        <shaderTypeDef>TransparentPostLight</shaderTypeDef>
+        <rotDrawMode>Fresh</rotDrawMode>
+
+        <!-- Modifies the color of the Red area of the mask -->
+        <colorA>
+          <!-- Red if hostile, blue if netural/friendly -->
+          <hostilityStatus>true</hostilityStatus>
+
+          <!-- It's a halo, so let's make it a bit trasparent. -->
+          <color>(1,1,1,0.6)</color>
+
+          <!-- Up the brightness a bit and pull down the saturation so it looks more "glowy" -->
+          <brightness>1.2</brightness>
+          <saturation>0.8</saturation>
+          <minBrightness>0.8</minBrightness>
+          <alts>
+            <li>
+              <!-- if Ded. -->
+              <triggers><li>Dead</li></triggers>
+              <ideologyColor>true</ideologyColor>
+              <maxBrightness>0.2</maxBrightness>
+              <color>(1,1,1,0.2)</color>
+            </li>
+            <li>
+              <!-- if colonist... -->
+              <triggers><li>Colonist</li></triggers>
+              <!-- RAINBOOOOOWS! -->
+              <colourRange>
+                <li>255,64,64</li>
+                <li>128,255,128</li>
+                <li>128,128,255</li>
+                <li>255,64,64</li>
+               </colourRange>
+               <color>(1,1,1,0.6)</color>
+               <brightness>1.2</brightness>
+               <saturation>0.8</saturation>
+               <minBrightness>0.8</minBrightness>
+            </li>
+          </alts>
+        </colorA>
+
+        <!-- Modifies the color of the Green area of the mask -->
+        <colorB>
+          <!-- Set to the main color of the Ideology (or faction if DLC is missing) -->
+          <ideologyColor>true</ideologyColor>
+
+          <!-- Make sure the value-brightness is maxed out. We don't want poop-brown halos! -->
+          <minBrightness>1</minBrightness>
+          <color>(1,1,1,0.75)</color>
+          <saturation>0.8</saturation>
+          <alts>
+            <li>
+              <!-- If dead...... -->
+              <triggers><li>Dead</li></triggers>
+              <ideologyColor>true</ideologyColor>
+              <maxBrightness>0.2</maxBrightness>
+              <color>(1,1,1,0.2)</color>
+            </li>
+            <li>
+              <!-- But instead, if they are a colonist then do- -->
+              <triggers>
+                <li>Colonist</li>
+                <li>IdeologyDLC</li>
+              </triggers>
+
+              <!-- Set it to their favorite color! -->
+              <favoriteColor>true</favoriteColor>
+              <color>(1,1,1,0.6)</color>
+              <brightness>1.2</brightness>
+              <saturation>0.8</saturation>
+              <minBrightness>0.8</minBrightness>
+            </li>
+            <li>
+              <!-- Slave? -->
+              <triggers>
+                <li>SlaveOfColony</li>
+              </triggers>
+
+              <!-- Set it to their favorite color. But muted and faded because slavery sucks! -->
+              <favoriteColor>true</favoriteColor>
+              <color>(1,1,1,0.5)</color>
+              <brightness>1.2</brightness>
+              <saturation>0.5</saturation>
+              <minBrightness>0.5</minBrightness>
+            </li>
+            <li>
+              <triggers><li>Colonist</li></triggers>
+              <!-- No Ideology DLC? Fine, set it to the outfit color. -->
+              <apparelColorOrFavorite>true</apparelColorOrFavorite>
+              <color>(1,1,1,0.6)</color>
+              <brightness>1.2</brightness>
+              <saturation>0.8</saturation>
+              <minBrightness>0.8</minBrightness>
+            </li>
+          </alts>
+        </colorB>
+
+        <colorType>Custom</colorType>
+        <drawData>
+          <defaultData>
+            <layer>49.5</layer>
+          </defaultData>
+          <dataNorth>
+            <offset>(0.0, 0, 0.0)</offset>
+          </dataNorth>
+          <dataSouth>
+            <offset>(-0.0, 0, 0.00)</offset>
+          </dataSouth>
+          <dataEast>
+            <offset>(-0.0, 0, 0.0)</offset>
+            <layer>90</layer>
+          </dataEast>
+        </drawData>
+        <parentTagDef>Head</parentTagDef>
+      </li>
+    </renderNodeProperties>
+  </HediffDef>
+</Defs>
