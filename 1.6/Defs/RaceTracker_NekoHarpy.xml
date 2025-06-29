@@ -123,6 +123,13 @@
               <li MayRequire="Ludeon.Rimworld.Ideology">Apparel_Flophat</li>
             </blacklist>
           </thingDefs>
+          <!-- ThingDefs aren't checked by one Ludeon's CanWear, so if using apparel layer blacklists tags are the only safe way to allow/whitelist. -->
+          <tags>
+            <allowlist>
+              <li>Warcasket</li>
+              <li>Barbarian</li>
+            </allowlist>
+          </tags>
           <apparelLayers>
             <blacklist>
               <!-- Nekoharpies can't fit in power armor. -->

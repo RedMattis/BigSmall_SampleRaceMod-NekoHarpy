@@ -1,4 +1,6 @@
 <Defs>
+
+  <!-- Use this option if you don't want to give them genes, but want the xenotype to set their race. -->
   <XenotypeDef Abstract="True" Name="SRM_NekoHarpyDirect">
     <label>Neko-Harpy</label>
     <description>A creature most known for committing horrible warcrimes as well as performing lewd and unusual acts such as eating without a table.</description>
@@ -19,7 +21,11 @@
     </modExtensions>
   </XenotypeDef>
 
-  <XenotypeDef Abstract="True" Name="SRM_NekoHarpyGene">
+  <!--
+  Use this option if you want Neko-Harpy-ism to be a gene that can be extracted or inherited, etc.
+  If unsure which one to use, I'd recommend using this one.
+  -->
+  <XenotypeDef Abstract="True" Name="SRM_NekoHarpyGeneBased">
     <label>Neko-Harpy</label>
     <description>A creature most known for committing horrible warcrimes as well as performing lewd and unusual acts such as eating without a table.</description>
     <iconPath>Icons/BS_Kitsune</iconPath>
@@ -27,17 +33,17 @@
     <inheritable>true</inheritable>
     <factionlessGenerationWeight>1</factionlessGenerationWeight>
     <genes>
-      <li>SRM_NekoHarp</li>
+      <li>SRM_NekoHarpy</li>
     </genes>
   </XenotypeDef>
 
-  <!-- In this case we're using the gene version, since it fits this type of biological race. -->
-  <XenotypeDef ParentName="SRM_NekoHarpyGene">
-    <defName>SRM_NekoHarpyGene</defName>
+  <!-- This is literally just SRM_NekoHarpyGeneBased, except we tell the game to actually create it by making a non-abstract version. :)-->
+  <XenotypeDef ParentName="SRM_NekoHarpyGeneBased">
+    <defName>SRM_NekoHarpy</defName>
   </XenotypeDef>
 
   <GeneDef ParentName="BS_BodySwitch">
-		<defName>SRM_NekoHarp</defName>
+		<defName>SRM_NekoHarpy</defName>
 		<label>neko harpy race</label>
 		<description>Carriers of this genes are creatures most known for committing horrible warcrimes as well as performing lewd and unusual acts such as eating without a table.</description>
 		<biostatCpx>1</biostatCpx>
