@@ -117,12 +117,6 @@
           <Intellectual>-4</Intellectual>
         </aptitudes>
         <apparelRestrictions>
-          <thingDefs>
-            <blacklist>
-              <!-- Screw flophats apparently? -->
-              <li MayRequire="Ludeon.Rimworld.Ideology">Apparel_Flophat</li>
-            </blacklist>
-          </thingDefs>
           <!-- ThingDefs aren't checked by one Ludeon's CanWear, so if using apparel layer blacklists tags are the only safe way to allow/whitelist. -->
           <tags>
             <allowlist>
