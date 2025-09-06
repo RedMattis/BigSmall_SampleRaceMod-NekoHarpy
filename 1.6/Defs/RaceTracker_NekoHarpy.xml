@@ -116,26 +116,25 @@
           <Social>4</Social>
           <Intellectual>-4</Intellectual>
         </aptitudes>
-        <apparelRestrictions>
-          <!-- ThingDefs aren't checked by one Ludeon's CanWear, so if using apparel layer blacklists tags are the only safe way to allow/whitelist. -->
-          <tags>
-            <allowlist>
-              <li>Warcasket</li>
-              <li>Barbarian</li>
-            </allowlist>
-          </tags>
-          <apparelLayers>
-            <blacklist>
-              <!-- Nekoharpies can't fit in power armor. -->
-              <li>Shell</li>
-            </blacklist>
-          </apparelLayers>
-          <bodyPartGroups>
-            <blacklist>
-              <!-- Nekoharpies in hats is cute, but none of those full-helmets please! -->
-              <li>FullHead</li>
-            </blacklist>
-          </bodyPartGroups>
+      <apparelRestrictions>
+        <tags>
+          <allowlist>
+            <li>Warcasket</li>
+            <li>Barbarian</li>
+          </allowlist>
+        </tags>
+        <apparelLayers>
+          <blacklist>
+            <!-- Nekoharpies can't fit in power armor. -->
+            <li>Shell</li>
+          </blacklist>
+        </apparelLayers>
+        <bodyPartGroups>
+          <blacklist>
+            <!-- Nekoharpies in hats is cute, but none of those full-helmets please! -->
+            <li>FullHead</li>
+          </blacklist>
+        </bodyPartGroups>
         </apparelRestrictions>
         <surgeryRecipes>
           <blacklist>
