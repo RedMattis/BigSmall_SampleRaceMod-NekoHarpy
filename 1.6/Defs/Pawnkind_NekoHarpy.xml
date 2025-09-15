@@ -80,12 +80,6 @@
     </requiredWorkTags>
     <initialWillRange>0</initialWillRange>
     <initialResistanceRange>1~3</initialResistanceRange>
-    <skills>
-      <li>
-        <skill>Melee</skill>
-        <range>4~18</range>
-      </li>
-    </skills>
 
     <!--
     The commented out tag here is exceptionally useful for making "Elite" or "Boss" pawnkinds. Without it Ludeon's storyteller will tend to spawn
@@ -104,6 +98,23 @@
         <SRM_NekoHarpy MayRequire="Ludeon.RimWorld.Biotech">1.0</SRM_NekoHarpy>
       </xenotypeChances>
     </xenotypeSet>
+    <modExtensions>
+      <li Class="BigAndSmall.PawnKindExtension">
+        <!-- RimwWorld Pawns have a Skill entry already, but it tends to cause validation errors, so I don't recommend using theirs. -->
+        <skillRange>
+          <li>
+            <skill>Melee</skill>
+            <range>4~18</range>
+          </li>
+        </skillRange>
+        <forcedPassions>
+          <li>
+            <skill>Melee</skill>
+            <passion>Major</passion>
+          </li>
+        </forcedPassions>
+      </li>
+    </modExtensions>
   </PawnKindDef>
 
   <!--
