@@ -274,7 +274,7 @@
         <workerClass>PawnRenderNodeWorker_FlipWhenCrawling</workerClass>
         <texPath>RaceTextures/Halos/Halo_Greyscale</texPath>
         <color>(255, 255, 255, 200)</color>
-        <shaderTypeDef>TransparentPostLight</shaderTypeDef>
+        <shader>BS_EnergyShader</shader>
         <rotDrawMode>Fresh</rotDrawMode>
 
         <!-- Modifies the color of the Red area of the mask -->
@@ -302,15 +302,11 @@
               <triggers><li>Colonist</li></triggers>
               <!-- RAINBOOOOOWS! -->
               <colourRange>
-                <li>255,64,64</li>
-                <li>128,255,128</li>
-                <li>128,128,255</li>
-                <li>255,64,64</li>
+                <li weight="2">255,24,24</li>
+                <li >24,255,128</li>
+                <li>24,24,255</li>
+                <li>255,24,24</li>
                </colourRange>
-               <color>(1,1,1,0.6)</color>
-               <brightness>1.2</brightness>
-               <saturation>0.8</saturation>
-               <minBrightness>0.8</minBrightness>
             </li>
           </alts>
         </colorA>
@@ -381,6 +377,7 @@
           </dataNorth>
           <dataSouth>
             <offset>(-0.0, 0, 0.00)</offset>
+            <layer>5</layer>
           </dataSouth>
           <dataEast>
             <offset>(-0.0, 0, 0.0)</offset>
